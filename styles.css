@@ -243,6 +243,7 @@ summary{
   align-items:center;
   justify-content: space-between;
   gap: 10px;
+  flex-wrap: wrap;
 }
 summary::-webkit-details-marker{ display:none; }
 
@@ -251,6 +252,7 @@ summary::-webkit-details-marker{ display:none; }
   align-items:center;
   gap: 10px;
   min-width: 0;
+  flex-wrap: wrap;
 }
 .icon{
   width: 28px;
@@ -264,9 +266,8 @@ summary::-webkit-details-marker{ display:none; }
 }
 .spot-title{
   font-weight: 700;
-  white-space: nowrap;
-  overflow:hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: visible;
 }
 .kebab{
   color: rgba(15,23,42,.45);
@@ -329,4 +330,15 @@ a:hover{ text-decoration: underline; }
   .stats{ grid-template-columns: repeat(2, minmax(0,1fr)); }
   h1{ font-size: 28px; }
   .meta-row{ grid-template-columns: 80px 1fr; }
+}
+
+@media (max-width: 600px){
+  h1{ font-size: 24px; }
+  .day h2{ font-size: 18px; }
+  .meta-row{ grid-template-columns: 1fr; }
+  .tab{ font-size: 12px; padding: 8px 10px; }
+  .spot-title{ font-size: 14px; }
+  .kebab{ display: none; }
+  .stats{ grid-template-columns: 1fr; }
+  .budget{ gap: 8px 10px; }
 }
