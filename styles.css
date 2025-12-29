@@ -394,3 +394,73 @@ a:hover{ text-decoration: underline; }
   .spot-body{ padding: 0 10px 10px; }
   .meta-line{ font-size: 12px; gap: 6px 10px; }
 }
+/* ===== iPhone 整齊版：允許兩行，但固定 Tag 位置 ===== */
+@media (max-width: 520px){
+
+  /* 卡片不要那麼鬆 */
+  .spots{ gap: 10px; }
+  details.spot{ border-radius: 14px; }
+
+  /* summary 改成相對定位，讓 tag 可以釘在右上角 */
+  summary{
+    position: relative;
+    padding: 12px 12px 10px;
+    align-items: flex-start;
+  }
+
+  /* icon 小一點點，但更精緻 */
+  .icon{
+    width: 24px;
+    height: 24px;
+    border-radius: 9px;
+    font-size: 12px;
+    margin-top: 2px;
+  }
+
+  /* 標題：允許兩行（甚至三行也行），字體大一點點 */
+  .spot-title{
+    font-size: 16px;
+    line-height: 1.35;
+    white-space: normal;
+    overflow: visible;
+
+    /* 把你之前可能加的 line-clamp 解除掉 */
+    display: block;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+  }
+
+  /* 左側容器：讓標題正常換行 */
+  .spot-left{
+    min-width: 0;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  /* 關鍵：把 tag 固定在右上角，不再被長標題擠到下一行亂跑 */
+  summary .tag{
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    font-size: 12px;
+    padding: 3px 8px;
+  }
+
+  /* 給標題右側留空間，避免文字撞到 tag */
+  .spot-title{
+    padding-right: 64px; /* 視覺安全距離 */
+  }
+
+  /* 右邊那個 ⋮⋮ 其實會增加雜訊，手機先收掉更乾淨 */
+  .kebab{ display: none; }
+
+  /* 展開內容字也舒服一點 */
+  .spot-body p{
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .meta-line{
+    font-size: 12px;
+    gap: 6px 10px;
+  }
+}
