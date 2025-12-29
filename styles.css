@@ -342,3 +342,55 @@ a:hover{ text-decoration: underline; }
   .stats{ grid-template-columns: 1fr; }
   .budget{ gap: 8px 10px; }
 }
+/* ===== Mobile Tidy Pack（iPhone 變整齊專用）===== */
+@media (max-width: 520px){
+  .container{ padding: 0 14px; }
+
+  .hero-content{ padding: 18px 14px 12px; }
+
+  /* 統計卡：手機改成 1 欄，變清楚，不擠不亂 */
+  .stats{ grid-template-columns: 1fr; gap: 8px; }
+  .stat{ padding: 10px 10px; }
+  .stat-k{ font-size: 12px; }
+  .stat-v{ font-size: 18px; }
+
+  /* Day 卡：縮小留白 */
+  .day{ padding: 14px 12px; margin: 10px 0; }
+  .day h2{ font-size: 18px; }
+
+  /* 每日小計：更緊湊 */
+  .budget{ padding: 8px 10px; gap: 8px 10px; }
+  .budget span{ font-size: 12px; }
+
+  /* 景點列表：間距縮小 */
+  .spots{ gap: 8px; }
+
+  /* 每張 spot 卡：縮小圓角和 padding */
+  details.spot{ border-radius: 12px; }
+  summary{ padding: 10px 10px; align-items: flex-start; }
+
+  /* icon 變小，避免每張卡都很胖 */
+  .icon{
+    width: 22px;
+    height: 22px;
+    border-radius: 8px;
+    font-size: 12px;
+  }
+
+  /* 標題最多顯示 2 行，超過就省略，視覺立刻不碎 */
+  .spot-left{ gap: 8px; min-width: 0; }
+  .spot-title{
+    white-space: normal;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  /* Tag 靠右，不要卡在左邊跟標題打架 */
+  summary .tag{ margin-left: auto; font-size: 11px; padding: 2px 6px; }
+
+  /* 展開內容 padding 也縮小 */
+  .spot-body{ padding: 0 10px 10px; }
+  .meta-line{ font-size: 12px; gap: 6px 10px; }
+}
